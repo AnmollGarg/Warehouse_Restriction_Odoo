@@ -1,0 +1,29 @@
+<odoo>
+    <record id="view_users_form_warehouse_restriction" model="ir.ui.view">
+        <field name="name">res.users.form.warehouse.restriction</field>
+        <field name="model">res.users</field>
+        <field name="inherit_id" ref="base.view_users_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='access_rights']/group" position="inside">
+                <group string="Other">
+                    <field name="restricted_warehouse"/>
+                </group>
+            </xpath>
+
+            <xpath expr="//page[@name='preferences']/group" position="inside">
+            <group string="Warehouse Restriction">
+                <field name="default_warehouse_operations"/>
+                <field name="restrict_location" />
+            </group>
+            </xpath>
+
+            <xpath expr="//notebook" position="inside">
+                <page string="Warehouse Restriction">
+            <group string="Warehouse Restriction">
+               <field name="allowed_locations"/>
+            </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>
