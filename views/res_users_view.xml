@@ -11,17 +11,17 @@
             </xpath>
 
             <xpath expr="//page[@name='preferences']/group" position="inside">
-            <group string="Warehouse Restriction">
-                <field name="default_warehouse_operations"/>
-                <field name="restrict_location" />
-            </group>
+                <group string="Warehouse Restriction" invisible="restricted_warehouse != True">
+                    <field name="default_warehouse_operations" widget="many2many_tags"/>
+                    <field name="restrict_location"/>
+                </group>
             </xpath>
 
             <xpath expr="//notebook" position="inside">
-                <page string="Warehouse Restriction">
-            <group string="Warehouse Restriction">
-               <field name="allowed_locations"/>
-            </group>
+                <page string="Allowed Stock Locations" invisible="restrict_location != True">
+                    <group>
+                        <field name="allowed_locations" />
+                    </group>
                 </page>
             </xpath>
         </field>
